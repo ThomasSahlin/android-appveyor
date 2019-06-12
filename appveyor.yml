@@ -5,7 +5,7 @@ clone_depth: 5
 #cache:
 #  - packages -> **\packages.config
 
-installation:
+install:
   - ps: get-location
   - ps: $dir = "C:\Microsoft\AndroidNDK64"
   - ps: get-childitem -path $dir
