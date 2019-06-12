@@ -2,8 +2,8 @@ image: Visual Studio 2017
 
 clone_depth: 5
 
-#cache:
-#  - packages -> **\packages.config
+cache:
+  - C:\Microsoft\AndroidNDK64
 
 install:
   - ps: get-location
