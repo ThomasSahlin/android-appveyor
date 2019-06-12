@@ -7,8 +7,10 @@ clone_depth: 5
 
 install:
   - ps: get-location
-  - ps: $dir = "C:\Microsoft\AndroidNDK64"
-  - ps: get-childitem -path $dir
+  - ps: .\install.ps1
+  - ps: $ndkDir = "C:\Microsoft\AndroidNDK64"
+  - ps: get-childitem -path $ndkDir
+#  - ps: $url = "https://dl.google.com/android/repository/android-ndk-r15c-windows-x86_64.zip"
 
 before_build:
   - nuget restore AndroidAppVeyor.sln
