@@ -2,8 +2,13 @@ image: Visual Studio 2017
 
 clone_depth: 5
 
-cache:
-  - packages -> **\packages.config
+#cache:
+#  - packages -> **\packages.config
+
+installation:
+  - ps: get-location
+  - ps: $dir = "C:\Microsoft\AndroidNDK64"
+  - ps: get-childitem -path $dir
 
 before_build:
   - nuget restore AndroidAppVeyor.sln
