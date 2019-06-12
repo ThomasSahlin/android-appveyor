@@ -42,14 +42,14 @@
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\ProgramData\Microsoft\AndroidNDK64\android-ndk-r17\sysroot\usr\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\ProgramData\Microsoft\AndroidNDK64\android-ndk-r17\sysroot\usr\include\arm-linux-androideabi;C:\ProgramData\Microsoft\AndroidNDK64\android-ndk-r17\sysroot\usr\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\ProgramData\Microsoft\AndroidNDK64\android-ndk-r17\sysroot\usr\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\ProgramData\Microsoft\AndroidNDK64\android-ndk-r17\sysroot\usr\include\arm-linux-androideabi;C:\ProgramData\Microsoft\AndroidNDK64\android-ndk-r17\sysroot\usr\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
