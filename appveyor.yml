@@ -5,6 +5,9 @@ clone_depth: 5
 cache:
   - packages -> **\packages.config
 
+before_build:
+  - nuget restore AndroidAppVeyor.sln
+
 configuration: Release
 
 build:
