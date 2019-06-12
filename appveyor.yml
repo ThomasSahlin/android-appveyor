@@ -1,0 +1,12 @@
+image: Visual Studio 2017
+
+clone_depth: 5
+
+cache:
+  - packages -> **\packages.config
+
+configuration: Release
+
+build:
+  project: AndroidAppVeyor.sln
+  verbosity: normal
