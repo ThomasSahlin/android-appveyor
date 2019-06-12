@@ -2,7 +2,7 @@ image: Visual Studio 2017
 
 clone_depth: 5
 
-environment:
+#environment:
 #  VS_NdkRoot: 'C:\ProgramData\Microsoft\AndroidNDK64\android-ndk-r17'
 
 cache:
