@@ -3,7 +3,7 @@ image: Visual Studio 2017
 clone_depth: 5
 
 cache:
-  - C:\Microsoft\AndroidNDK64
+  - 'C:\Microsoft\AndroidNDK64'
 
 environment:
   VS_NdkRoot: 'C:\Microsoft\AndroidNDK64\android-ndk-r15c'
@@ -11,6 +11,9 @@ environment:
 install:
   - ps: Get-Location
   - ps: .\install.ps1
+  - ps: Get-ChildItem -Path C:\Microsoft\AndroidNDK64
+  - ps: Get-ChildItem -Path C:\Microsoft\AndroidNDK64\android-ndk-r15c
+  - ps: Get-ChildItem -Path C:\Microsoft\AndroidNDK64\android-ndk-r15c\platforms\android-19\arch-arm\usr\include
 
 before_build:
   - nuget restore AndroidAppVeyor.sln
