@@ -13,11 +13,11 @@ install:
   - ps: .\install.ps1
 
 build_script:
-  - echo "Building solution"
+  - echo Building solution
   - msbuild AndroidAppVeyor.sln -v:m -t:Restore;Build -p:Configuration=Release -p:Platform=ARM -l:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-  - echo "Building APK"
-  - msbuild AndroidAppVeyor\AndroidAppVeyor.csproj -v:m -t:PackageForAndroid -p:Configuration=Release -p:Platform=ARM -p:OutputPath=Bin\Mobile\Release\ARM -l:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-  - ps: Get-ChildItem -Path Bin\Mobile\Release\ARM
+  - echo Building APK
+  - msbuild AndroidAppVeyor\AndroidAppVeyor.csproj -v:m -t:PackageForAndroid -p:Configuration=Release -p:Platform=ARM -p:OutputPath=Bin\Release -l:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+  - ps: Get-ChildItem -Path AndroidAppVeyor\Bin\Release
 
 
 #before_build:
