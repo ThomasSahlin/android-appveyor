@@ -12,10 +12,10 @@ New-Item -ItemType Directory -Path $baseDir
 
 $tmpFile = "$baseDir\ndk.zip"
 
-Write-Host "Downloading Android NDK 15C from:`n$url"
+Write-Host "Downloading Android NDK 15c from:`n$url"
 (New-Object System.Net.WebClient).DownloadFile($url, $tmpFile)
 
 Write-Host "Unzipping NDK"
-7z x $tmpFile
+7z x $tmpFile "-o$baseDir"
 
 Remove-Item $tmpFile
