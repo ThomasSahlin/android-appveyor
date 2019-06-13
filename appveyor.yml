@@ -5,10 +5,10 @@ clone_depth: 5
 cache:
   - C:\Microsoft\AndroidNDK64
 
+environment:
+  VS_NdkRoot: 'C:\Microsoft\AndroidNDK64\android-ndk-r15c'
+
 install:
-  - ps: get-childitem -path HKCU:\Software\Microsoft\VisualStudio
-  - ps: get-childitem -path HKCU:\Software\Microsoft\VisualStudio\SecondaryInstaller
-#  - ps: get-item -path HKCU:\Software\Microsoft\VisualStudio\SecondaryInstaller\VC
   - ps: Get-Location
   - ps: .\install.ps1
 
