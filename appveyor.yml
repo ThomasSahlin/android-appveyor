@@ -6,6 +6,7 @@ cache:
   - C:\Microsoft\AndroidNDK64
 
 install:
+  - ps: get-psdrive
   - ps: get-item -path HKCU:\Software\Microsoft\VisualStudio\SecondaryInstaller\VC
   - ps: Get-Location
   - ps: .\install.ps1
