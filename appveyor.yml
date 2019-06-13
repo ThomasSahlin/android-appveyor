@@ -11,15 +11,20 @@ environment:
 install:
   - ps: Get-Location
   - ps: .\install.ps1
-  - ps: Get-ChildItem -Path C:\Microsoft\AndroidNDK64
-  - ps: Get-ChildItem -Path C:\Microsoft\AndroidNDK64\android-ndk-r15c
-  - ps: Get-ChildItem -Path C:\Microsoft\AndroidNDK64\android-ndk-r15c\platforms\android-19\arch-arm\usr\include
 
-before_build:
-  - nuget restore AndroidAppVeyor.sln
+build_script:
+  - echo "Building solution"
+  - msbuild AndroidAppVeyor.sln -v:m -t:Restore;Build -p:Configuration=Release -p:Platform=ARM -l:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+  - echo "Building APK"
+  - msbuild AndroidAppVeyor\AndroidAppVeyor.csproj -v:m -t:PackageForAndroid -p:Configuration=Release -p:Platform=ARM -p:OutputPath=Bin\Mobile\Release\ARM -l:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+  - ps: Get-ChildItem -Path Bin\Mobile\Release\ARM
 
-configuration: Release
 
-build:
-  project: AndroidAppVeyor.sln
-  verbosity: normal
+#before_build:
+#  - nuget restore AndroidAppVeyor.sln
+
+#configuration: Release
+
+#build:
+#  project: AndroidAppVeyor.sln
+#  verbosity: normal
