@@ -14,9 +14,10 @@ install:
 
 build_script:
   - echo Building solution
-  - msbuild AndroidAppVeyor.sln -v:m -t:Restore;Build -p:Configuration=Release -p:Platform=ARM -l:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+  - msbuild AndroidAppVeyor.sln @AndroidBuildParams.rsp -t:Restore;Build
   - echo Building APK
-  - msbuild AndroidAppVeyor\AndroidAppVeyor.csproj -v:m -t:PackageForAndroid -p:Configuration=Release -p:Platform=ARM -p:OutputPath=Bin\Release -l:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+  #- msbuild AndroidAppVeyor\AndroidAppVeyor.csproj @AndroidBuildParams.rsp -t:PackageForAndroid -p:OutputPath=Bin\Release
+  - msbuild AndroidAppVeyor\AndroidAppVeyor.csproj @AndroidBuildParams.rsp -t:SignAndroidPackage -p:AndroidKeyStore=true -p:AndroidSigningKeyStore=test.keystore -p:AndroidSigningStorePass=testtest -p:AndroidSigningKeyAlias=rspos -p:AndroidSigningKeyPass=testtest -p:OutputPath=Bin\Release
   - ps: Get-ChildItem -Path AndroidAppVeyor\Bin\Release
 
 
