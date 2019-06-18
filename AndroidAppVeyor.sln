@@ -8,11 +8,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{6917437A-CADA-470F-B21D-562E4D6CCB8F}"
 	ProjectSection(SolutionItems) = preProject
 		appveyor.yml = appveyor.yml
+		set-version.ps1 = set-version.ps1
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidForms.Android", "AndroidForms\AndroidForms.Android\AndroidForms.Android.csproj", "{56F23D0A-6415-4B92-B76F-36DFA715B050}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidForms", "AndroidForms\AndroidForms\AndroidForms.csproj", "{413A4F52-F296-409C-A2B8-E2A7DD417C96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndroidForms", "AndroidForms\AndroidForms\AndroidForms.csproj", "{413A4F52-F296-409C-A2B8-E2A7DD417C96}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DynamicLib", "DynamicLib\DynamicLib.vcxproj", "{5EC69081-55FA-4E80-A7CD-6860CF9F8341}"
 EndProject

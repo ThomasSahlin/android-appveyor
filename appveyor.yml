@@ -10,15 +10,17 @@ environment:
 
 install:
   - ps: Get-Location
-  - ps: .\install.ps1
+  #- ps: .\install.ps1
 
 build_script:
-  - echo Building solution
-  - msbuild AndroidAppVeyor.sln @AndroidBuildParams.rsp -t:Restore;Build
-  - echo Building APK
+  - ps: .\set-version.ps1
+
+  #- echo Building solution
+  #- msbuild AndroidAppVeyor.sln @AndroidBuildParams.rsp -t:Restore;Build
+  #- echo Building APK
   #- msbuild AndroidAppVeyor\AndroidAppVeyor.csproj @AndroidBuildParams.rsp -t:PackageForAndroid -p:OutputPath=Bin\Release
-  - msbuild AndroidAppVeyor\AndroidAppVeyor.csproj @AndroidBuildParams.rsp -t:SignAndroidPackage -p:AndroidKeyStore=true -p:AndroidSigningKeyStore=..\test.keystore -p:AndroidSigningStorePass=testtest -p:AndroidSigningKeyAlias=rspos -p:AndroidSigningKeyPass=testtest -p:OutputPath=Bin\Release
-  - ps: Get-ChildItem -Path AndroidAppVeyor\Bin\Release
+  #- msbuild AndroidAppVeyor\AndroidAppVeyor.csproj @AndroidBuildParams.rsp -t:SignAndroidPackage -p:AndroidKeyStore=true -p:AndroidSigningKeyStore=..\test.keystore -p:AndroidSigningStorePass=testtest -p:AndroidSigningKeyAlias=rspos -p:AndroidSigningKeyPass=testtest -p:OutputPath=Bin\Release
+  #- ps: Get-ChildItem -Path AndroidAppVeyor\Bin\Release
 
 
 #before_build:
