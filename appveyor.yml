@@ -3,13 +3,31 @@ image: Visual Studio 2017
 clone_depth: 5
 
 cache:
-  - packages -> **\packages.config
+  - 'C:\Microsoft\AndroidNDK64'
 
-before_build:
-  - nuget restore AndroidAppVeyor.sln
+environment:
+  VS_NdkRoot: 'C:\Microsoft\AndroidNDK64\android-ndk-r15c'
 
-configuration: Release
+install:
+  - ps: Get-Location
+  #- ps: .\install.ps1
 
-build:
-  project: AndroidAppVeyor.sln
-  verbosity: normal
+build_script:
+  - ps: .\set-version.ps1
+
+  #- echo Building solution
+  #- msbuild AndroidAppVeyor.sln @AndroidBuildParams.rsp -t:Restore;Build
+  #- echo Building APK
+  #- msbuild AndroidAppVeyor\AndroidAppVeyor.csproj @AndroidBuildParams.rsp -t:PackageForAndroid -p:OutputPath=Bin\Release
+  #- msbuild AndroidAppVeyor\AndroidAppVeyor.csproj @AndroidBuildParams.rsp -t:SignAndroidPackage -p:AndroidKeyStore=true -p:AndroidSigningKeyStore=..\test.keystore -p:AndroidSigningStorePass=testtest -p:AndroidSigningKeyAlias=rspos -p:AndroidSigningKeyPass=testtest -p:OutputPath=Bin\Release
+  #- ps: Get-ChildItem -Path AndroidAppVeyor\Bin\Release
+
+
+#before_build:
+#  - nuget restore AndroidAppVeyor.sln
+
+#configuration: Release
+
+#build:
+#  project: AndroidAppVeyor.sln
+#  verbosity: normal
